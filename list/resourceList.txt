@@ -1,0 +1,6 @@
+oil
+aluminium
+rubber
+tungsten
+steel
+chromium

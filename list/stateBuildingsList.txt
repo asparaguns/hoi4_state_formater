@@ -1,0 +1,11 @@
+infrastructure
+industrial_complex
+arms_factory
+dockyard
+synthetic_refinery
+fuel_silo
+air_base
+anti_air_building
+radar_station
+rocket_site
+nuclear_reactor

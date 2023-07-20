@@ -1,0 +1,5 @@
+id
+manpower
+buildings_max_level_factor
+state_category
+impassable
