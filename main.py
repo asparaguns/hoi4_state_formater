@@ -1,8 +1,11 @@
 import os
+import time
 from Value import Value
 from Editor import Editor
 from Setter import Setter
 from Writer import Writer
+
+start = time.perf_counter()
 
 path = "./states/"
 folderfile = os.listdir(path)
@@ -29,3 +32,6 @@ for fileName in folderfile:
 	filePath = path + fileName
 	with open(filePath, 'w') as file:
 		file.write("\n".join(Writer(int(Editor().getStateId(fileName))).writeAll()))
+
+end = time.perf_counter()
+Editor().measure_times(start, end)

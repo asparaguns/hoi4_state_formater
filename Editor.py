@@ -48,7 +48,6 @@ class Editor:
 			csvwriter = csv.DictWriter(csvfile, fieldnames=fieldnames)
 			csvwriter.writeheader()
 			csvwriter.writerows(sorted_data)
-		print("ソートして上書きしました。")
 	def defaultSortCSV(self):
 		Editor().sortCSV("csv/state.csv", "id")
 		Editor().sortCSV("csv/history.csv", "id")
@@ -59,3 +58,9 @@ class Editor:
 		Editor().sortCSV("csv/projectFKikan.csv", "id")
 	def getStateId(self, fileName):
 		return re.search("\d+", fileName).group()
+	def measure_times(self, start, end):	#時間計測
+		times = int(end - start)
+		elapsed_hour = times // 3600
+		elapsed_minute = (times % 3600) // 60
+		elapsed_second = (times % 3600 % 60)
+		print(str(elapsed_hour).zfill(2) + ":" + str(elapsed_minute).zfill(2) + ":" + str(elapsed_second).zfill(2))
