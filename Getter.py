@@ -15,7 +15,7 @@ class Getter:
 		return match if match else None
 	
 	def getDebugCore(self):
-		self.pattern = "(\w+)\s*=\s*{\s*debug_core\s*=\s*yes\s*}"
+		self.pattern = "(\w+)\s*=\s*{\s*add_debug_core_PREV\s*=\s*yes\s*}"
 		match = re.findall(self.pattern, self.code)
 		return match if match else None
 	

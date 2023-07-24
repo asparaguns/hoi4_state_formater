@@ -78,12 +78,12 @@ class Writer(Value):
 			codeList += [effect + " = " + str(value) for value in codeList1]
 			codeList1 = []
 		for history in self.historyData:
-			if history["type"] == "debug_core":
+			if history["type"] == "add_debug_core_PREV":
 				if history["tag"] != "":
 					if history["tag"] == ownerTag:	code = history["tag"]
 					else:	codeList2.append(history["tag"])
 		if code != "":	codeList2 = [code] + codeList2
-		codeList += [str(value) + " = {\tdebug_core = yes\t}" for value in codeList2]
+		codeList += [str(value) + " = {\tadd_debug_core_PREV = yes\t}" for value in codeList2]
 		codeList.append("buildings = {")
 		codeList += self.writeBuildings()
 		codeList.append("}")

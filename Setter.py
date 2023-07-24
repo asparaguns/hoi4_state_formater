@@ -34,7 +34,7 @@ class Setter(Value):
 				temp = {}
 				temp["id"] = self.codes.getValue("id")
 				temp["tag"] = debugCore
-				temp["type"] = "debug_core"
+				temp["type"] = "add_debug_core_PREV"
 				allHistoriesInfomation.append(temp)
 		return allHistoriesInfomation
 	def setStateArrayData(self):
