@@ -107,11 +107,26 @@ class Writer(Value):
 		for building in self.stateBuildingsList:
 			if self.statesData[building] != "":
 				codeList.append(building + " = " + str(self.statesData[building]))
-		for building in self.provinceBuildingsList:
-			for province in self.provincesData:
+		for province in self.provincesData:
+			tmp = 0
+			for building in self.provinceBuildingsList:
 				if province[building] != "":
+					tmp += 1
+					if tmp > 1:	break
+			match tmp:
+				case 0:	continue
+				case 1:
 					code = str(province["province"]) + " = {\t"
-					code += building + " = " + str(province[building])
+					for building in self.provinceBuildingsList:
+						if province[building] != "":
+							code += building + " = " + str(province[building])
+							break
 					code += "\t}"
 					codeList.append(code)
+				case _:
+					codeList.append(str(province["province"]) + " = {")
+					for building in self.provinceBuildingsList:
+						if province[building] != "":
+							codeList.append("\t" + building + " = " + str(province[building]))
+					codeList.append("}")
 		return ['\t' + str(value) for value in codeList]
