@@ -52,6 +52,6 @@ class Getter:
 					buildingFlag = False
 		return province
 	def getVictoryPoints(self):
-		pattern = r'victory_points\s*=\s*{((?:\s*\d+\s*)+)}'
+		pattern = r'victory_points\s*=\s*{((?:\s*\d+\.*\s*)+)}'
 		match = re.findall(pattern, self.code)
 		return match if match else None

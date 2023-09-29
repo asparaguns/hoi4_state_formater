@@ -53,7 +53,7 @@ class Setter(Value):
 		victoryPoints = {}
 		if self.codes.getVictoryPoints() != None:
 			for victoryPoint in self.codes.getVictoryPoints():
-				victoryPoints[victoryPoint.split()[0]] = victoryPoint.split()[1]
+				victoryPoints[victoryPoint.split()[0]] = int(float(victoryPoint.split()[1]))
 		
 		for building in self.provinceBuildingsList:
 			if self.codes.getProvinceBuildings(building) != "":
